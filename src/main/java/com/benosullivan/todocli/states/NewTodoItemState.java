@@ -16,6 +16,11 @@ public class NewTodoItemState extends ProgramState {
 
     @Override
     public ProgramState handleMessage(String message) {
+        if (message.isEmpty()) {
+            output.print("Task must not be empty");
+            return this;
+        }
+
         db.addTodoItem(new TodoItem(message, false));
 
         output.print("Added new task \"" + message + "\"");

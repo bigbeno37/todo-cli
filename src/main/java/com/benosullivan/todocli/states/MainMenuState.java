@@ -18,9 +18,24 @@ public class MainMenuState extends ProgramState {
         switch (message) {
             case "add":
                 return new NewTodoItemState(output, db);
+            case "list":
+                listTodoItems();
+                break;
             default:
                 output.print("Unknown command \"" + message + "\".");
-                return this;
         }
+
+        return this;
+    }
+
+    public void listTodoItems() {
+        var items = db.getTodoItems();
+
+        if (items.isEmpty()) {
+            output.print("No todo items have been added");
+            return;
+        }
+
+        items.forEach(item -> output.print(item.getTask()));
     }
 }

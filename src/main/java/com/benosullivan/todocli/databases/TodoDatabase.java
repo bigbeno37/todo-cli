@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TodoDatabase {
     void addTodoItem(TodoItem item);
+    List<TodoItem> getTodoItems();
 }

@@ -24,4 +24,9 @@ public class TodoItem {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+    @Override
+    public String toString() {
+        return task + "," + completed;
+    }
 }
