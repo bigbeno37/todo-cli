@@ -5,12 +5,9 @@ import com.benosullivan.todocli.states.MainMenuState;
 import com.benosullivan.todocli.states.ProgramState;
 
 public class CLIEngine {
-    private OutputHandler output;
     private ProgramState currentState;
 
     public CLIEngine(OutputHandler output, TodoDatabase db) {
-        this.output = output;
-
         this.currentState = new MainMenuState(output, db);
         this.currentState.beforeMessage();
     }

@@ -4,6 +4,8 @@ import com.benosullivan.todocli.databases.InMemoryDatabase;
 import com.benosullivan.todocli.databases.LocalFileDatabase;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static com.benosullivan.todocli.TestUtils.assertContains;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,7 +33,7 @@ public class ListTodoItemsTest {
     }
 
     @Test
-    public void showsOneTodoItemFromLoadedFile() {
+    public void showsOneTodoItemFromLoadedFile() throws IOException {
         var output = new MockOutputHandler();
         var db = new LocalFileDatabase(new MockFileHandler("Wash the dishes,false"));
 
